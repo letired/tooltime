@@ -1,1 +1,25 @@
 // Your footer style
+#footer {
+  background-color: #333333;
+  background-size: cover;
+  color: #CCCCCC;
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#footer a {
+  color: #CCCCCC;
+  font-size: 16px;
+  padding: 0 20px 0 0;
+}
+#footer a:hover {
+  color: white;
+  text-decoration: none;
+}
+#footer .list-inline {
+  padding: 10px;
+}
+#footer i {
+  font-size: 29px;
+}
