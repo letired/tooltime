@@ -1,15 +1,16 @@
-<%= simple_form_for [@booking] do |f| %>
-  <%= f.input :date_begin, label: "Start date: " %>
-  <%= f.input :date_end, label: "End date: " %>
-  <%= f.input :message, label: "Message " %>
-  <%= hidden_field_tag 'tool_id', @tool.id %>
-  <% if user_signed_in? %>
-    <%= f.button :submit %>
-    <%= hidden_field_tag 'user_id', current_user.id %>
-  <% else %>
-    <%= f.label "Gotta be signed in!!!" %>
+<div class="form-inputs">
+  <%= simple_form_for [@booking] do |f| %>
+    <%= f.input :date_begin, label: "Start date: ", autofocus: true %>
+    <%= f.input :date_end, label: "End date: " %>
+    <%= f.input :message, label: "Message " %>
+    <%= hidden_field_tag 'tool_id', @tool.id %>
+    <div class="form-actions">
+      <% if user_signed_in? %>
+        <%= f.button :submit %>
+        <%= hidden_field_tag 'user_id', current_user.id %>
+      <% else %>
+        <%= f.label "Gotta be signed in!!!" %>
+      <% end %>
+      </div>
   <% end %>
-<% end %>
-
-
-
+</div>
