@@ -18,8 +18,8 @@ class ToolsController < ApplicationController
 
   def index
     @tools = Tool.all
-    if @tool == nil
-      @tool = @tools
+    if params[:tool] == nil
+      @tools
     else
       unless params[:tool][:name].empty?
        @tools = @tools.where("name ilike ?", params[:tool][:name])
