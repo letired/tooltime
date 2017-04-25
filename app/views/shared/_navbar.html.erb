@@ -7,11 +7,29 @@
   <!-- Right Navigation -->
   <% if user_signed_in? %>
     <div class="navbar-tooltime-right hidden-xs hidden-sm">
-
-      <%= link_to tools_user_path(current_user), class: "navbar-tooltime-item navbar-tooltime-link" do %>
-        <i class="fa fa-wrench" aria-hidden="true"></i>
-        My Tools
-      <% end %>
+      <div class="navbar-tooltime-item navbar-tooltime-link">
+        <div class="dropdown">
+          <div class="dropdown-toggle" id="navbar-tooltime-menu" data-toggle="dropdown">
+            <i class="fa fa-wrench" aria-hidden="true"></i>
+            My Tools
+          </div>
+          <ul class="dropdown-menu dropdown-menu-right navbar-tooltime-dropdown-menu">
+            <li>
+              <%= link_to tools_user_path(current_user), class: "navbar-tooltime-item navbar-tooltime-link" do %>
+                <i class="fa fa-tachometer" aria-hidden="true"></i>
+                Tools Dashboard
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_tool_path, class: "navbar-tooltime-item
+                navbar-tooltime-link" do %>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                Add a Tool
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
 
       <%= link_to bookings_user_path(current_user), class: "navbar-tooltime-item navbar-tooltime-link" do %>
         <i class="fa fa-book" aria-hidden="true"></i>
@@ -41,7 +59,14 @@
           <li>
             <%= link_to tools_user_path(current_user), class: "navbar-tooltime-item navbar-tooltime-link" do %>
               <i class="fa fa-wrench" aria-hidden="true"></i>
-              My Tools
+              Tools Dashboard
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_tool_path, class: "navbar-tooltime-item
+            navbar-tooltime-link" do %>
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Add a Tool
             <% end %>
           </li>
           <li>
