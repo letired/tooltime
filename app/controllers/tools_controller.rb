@@ -8,6 +8,7 @@ class ToolsController < ApplicationController
   end
 
   def index
+    @tools = Tool.all
     unless params[:tool][:name].empty?
      @tools = @tools.where("name ilike ?", params[:tool][:name])
     end
