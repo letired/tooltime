@@ -2,7 +2,7 @@
   <div class="row">
     <% @tools.each do |tool| %>
     <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('<%= image_path("https://www.placecage.com/g/300/400") %>');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('<%= card_photo?(tool) %>');">
         <div class="card-category"><%= tool.category %></div>
         <div class="card-description">
           <h2><%= tool.name %></h2>
