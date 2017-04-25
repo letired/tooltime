@@ -1,6 +1,14 @@
 <%= simple_form_for [@booking] do |f| %>
   <%= f.input :date_begin, label: "Start date: " %>
+  <%= f.input :date_end, label: "End date: " %>
   <%= f.input :message, label: "Message " %>
-  <%= f.association %>
-  <%= f.submit "Add Booking"%>
+  <%= hidden_field_tag 'tool_id', @tool.id %>
+  <% if user_signed_in? %>
+    <%= f.button :submit %>
+  <% else %>
+    <%= f.label "Gotta be signed in!!!" %>
+  <% end %>
 <% end %>
+
+
+

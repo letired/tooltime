@@ -1,8 +1,10 @@
 class ToolsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def new
   end
 
   def create
+
   end
 
   def index
@@ -20,6 +22,7 @@ class ToolsController < ApplicationController
 
   def show
     @tool = Tool.find(params[:id])
-    # @owner = @tool.user_id.first_name # + " " + @tool.user_id.last_name
+
+    @booking = Booking.new
   end
 end
