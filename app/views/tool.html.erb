@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h1><%= @tool.name %></h1>
+    <%= cl_image_tag @tool.photo%>
+    <%= @owner %>
+  </div>
+</div>
+
+<%= link_to 'Back', # tools_path, class: "btn" %>
+
+<%= simple_form_for # [@booking] do |f| %>
+  <%= f.input # :date_begin, label: "Start date: " %>
+  <%= f.input # :message, label: "Message " %>
+  <%= f.association %>
+  <%= f.submit "Add Booking"%>
+<% # end %>
