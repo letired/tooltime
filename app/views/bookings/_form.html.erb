@@ -1,0 +1,8 @@
+<%= simple_form_for @booking, method: :patch do |f| %>
+<%= f.input :accepted,
+            :as => :select,
+            :collection => [['Accept',true],['Reject',false]],
+            :include_blank => false,
+            :label => "Accept Booking?" %>
+<%= f.button :submit %>
+<% end %>
