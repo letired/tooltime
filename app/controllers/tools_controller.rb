@@ -7,14 +7,16 @@ class ToolsController < ApplicationController
 
   def index
     @tools = Tool.all
-    if params[:tool]
-    @tools = Tool.where(
-      name: params[:tool][:name],
-      location: params[:tool][:location],
-      category: params[:tool][:category]
-      ).order(created_at: :desc)
-    else
-      @tools = Tool.all
+    unless params[:tool][:name].empty?
+     @tools = @tools.where("name ilike ?", params[:tool][:name])
+    end
+
+    unless params[:tool][:location].empty?
+      @tools = @tools.where("location ilike ?", params[:tool][:location])
+    end
+
+    unless params[:tool][:category].empty?
+      @tools = @tools.where("category ilike ?", params[:tool][:category])
     end
   end
 
