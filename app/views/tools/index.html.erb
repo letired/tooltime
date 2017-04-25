@@ -1,7 +1,17 @@
 <div class="container">
-  <% @tools.each do |tool| %>
-    <%= tool.name %>
-    <%= tool.description %>
-    <%= tool.category %>
-  <% end %>
+    <% @tools.each do |tool| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('<%= image_path("https://www.placecage.com/g/300/400") %>');">
+        <div class="card-category"><%= tool.category %></div>
+        <div class="card-description">
+          <h2><%= tool.name %></h2>
+          <p><%= tool.description %></p>
+        </div>
+      </div>
+      <%= link_to tool, class: "card-link" do  %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  <hr>
 </div>

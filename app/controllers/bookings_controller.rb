@@ -12,13 +12,18 @@ class BookingsController < ApplicationController
   end
 
   def update
-
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_update_params)
+    redirect_to tools_user_path(@booking.tool.user)
   end
 
   private
 
   def booking_create_params
-    params.require(:booking).permit(:user_id, :message, :date_begin, :date_end, :tool_id)
+    params.require(:booking).permit(:tool_id, :user_id, :message, :date_begin, :date_end)
   end
 
+  def booking_update_params
+    params.require(:booking).permit(:accepted)
+  end
 end
