@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <h1><%= @tool.name %></h1>
+    <%= cl_image_tag @tool.photo, class: "card" %>
+    <p>Owner: <%= @tool.user.first_name + " " + @tool.user.last_name%></p>
+    <%= render 'form' %>
+    <%= link_to 'Back', tools_path, class: "btn" %>
+  </div>
+</div>
