@@ -41,10 +41,9 @@
 /* Navbar standard link */
 .navbar-tooltime-link {
   color: #616668;
-  font-size: 14px;
 }
 .navbar-tooltime-link:hover {
-  color: #da552f;
+  color: $brand-color;
   text-decoration: none;
 }
 
