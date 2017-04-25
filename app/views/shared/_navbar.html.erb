@@ -1,0 +1,70 @@
+<div class="navbar-tooltime">
+  <!-- Logo -->
+  <%= link_to root_path, class: "navbar-tooltime-brand" do %>
+    <%= image_tag("tools.png") %>
+  <% end %>
+
+  <!-- Right Navigation -->
+  <% if user_signed_in? %>
+    <div class="navbar-tooltime-right hidden-xs hidden-sm">
+
+      <%= link_to "#", class: "navbar-tooltime-item navbar-tooltime-link" do %>
+        <i class="fa fa-wrench" aria-hidden="true"></i>
+        My Tools
+      <% end %>
+
+      <%= link_to "#", class: "navbar-tooltime-item navbar-tooltime-link" do %>
+        <i class="fa fa-book" aria-hidden="true"></i>
+        My Bookings
+      <% end %>
+
+      <%= link_to destroy_user_session_path, method: "delete", class: "navbar-tooltime-item navbar-tooltime-link" do %>
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+        Log Out
+      <% end %>
+    </div>
+
+  <% else %>
+    <div class="navbar-tooltime-right hidden-xs hidden-sm">
+      <%= link_to "Login", new_user_session_path, class: "navbar-tooltime-item navbar-tooltime-link" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "navbar-tooltime-item navbar-tooltime-link" %>
+    </div>
+  <% end %>
+
+
+  <!-- Dropdown appearing on mobile only -->
+  <div class="navbar-tooltime-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-tooltime-dropdown-menu">
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to "#", class: "navbar-tooltime-item navbar-tooltime-link" do %>
+              <i class="fa fa-wrench" aria-hidden="true"></i>
+              My Tools
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#", class: "navbar-tooltime-item navbar-tooltime-link" do %>
+              <i class="fa fa-book" aria-hidden="true"></i>
+              My Bookings
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: "delete", class: "navbar-tooltime-item navbar-tooltime-link" do %>
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+              Log Out
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Login", new_user_session_path, class: "navbar-tooltime-item navbar-tooltime-link" %>
+          </li>
+          <li>
+            <%= link_to "Sign Up", new_user_registration_path, class: "navbar-tooltime-item navbar-tooltime-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
