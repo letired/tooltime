@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <%= simple_form_for @tool do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name %>
+        <%= f.input :category, collection: Tool::CATEGORIES, include_blank: false %>
+        <%= f.input :location %>
+        <%= f.input :description %>
+        <%= f.input :photo, as: :attachinary %>
+        <% if user_signed_in? %>
+          <%= hidden_field_tag "user_id", current_user.id %>
+          <%= f.button :submit %>
+        <% else %>
+        <%= f.label "Please Login" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
