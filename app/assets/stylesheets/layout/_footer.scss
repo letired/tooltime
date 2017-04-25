@@ -7,6 +7,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0;
+  position: absolute;
+  height: 70px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 #footer a {
   color: #CCCCCC;
@@ -22,4 +28,34 @@
 }
 #footer i {
   font-size: 29px;
+}
+#footer-small {
+  background-color: #333333;
+  background-size: cover;
+  color: #CCCCCC;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  position: absolute;
+  height: 70px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+#footer-small a {
+  color: #CCCCCC;
+  font-size: 14px;
+  padding: 0 20px 0 0;
+}
+#footer-small a:hover {
+  color: white;
+  text-decoration: none;
+}
+#footer-small .list-inline {
+  padding: 5px;
+}
+#footer-small i {
+  font-size: 18px;
 }
