@@ -20,6 +20,6 @@ class ToolsController < ApplicationController
 
   def show
     @tool = Tool.find(params[:id])
-    @owner = @tool.owner_id.first_name + " " + @tool.owner_id.last_name
+    # @owner = @tool.user_id.first_name # + " " + @tool.user_id.last_name
   end
 end

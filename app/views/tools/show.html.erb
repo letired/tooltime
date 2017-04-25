@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <h1><%= @tool.name %></h1>
+    <%= cl_image_tag @tool.photo %>
+    <%= @owner %>
+  </div>
+</div>
+
+<%= link_to 'Back', tools_path, class: "btn" %>
+

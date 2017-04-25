@@ -1,0 +1,6 @@
+<%= simple_form_for [@booking] do |f| %>
+  <%= f.input :date_begin, label: "Start date: " %>
+  <%= f.input :message, label: "Message " %>
+  <%= f.association %>
+  <%= f.submit "Add Booking"%>
+<% end %>
