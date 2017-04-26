@@ -17,7 +17,6 @@
 #footer a {
   color: #CCCCCC;
   font-size: 16px;
-  padding: 0 20px 0 0;
 }
 #footer a:hover {
   color: white;
@@ -25,6 +24,7 @@
 }
 #footer .list-inline {
   padding: 10px;
+  margin-bottom: 0;
 }
 #footer i {
   font-size: 29px;
@@ -46,11 +46,10 @@
 }
 #footer-small a {
   color: #CCCCCC;
-  font-size: 10px;
-  padding: 0 5px 0 0;
+  font-size: 11px;
 }
 #footer-small li {
-  font-size: 10px;
+  font-size: 11px;
   padding-right: 0px;
 }
 #footer-small a:hover {
@@ -58,8 +57,9 @@
   text-decoration: none;
 }
 #footer-small .list-inline {
-  padding: 3px;
+  padding: 10px;
+  margin-bottom: 0;
 }
 #footer-small i {
-  font-size: 12px;
+  font-size: 13px;
 }
