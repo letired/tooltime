@@ -9,6 +9,7 @@
           ], class: "img-responsive cld-responsive"%>
       <% end %>
       <p>Owner: <%= @tool.user.first_name + " " + @tool.user.last_name %></p>
+      <p>Description: <%= @tool.description %></p>
       <%= render 'form' %>
       <%= link_to 'Back', tools_path, class: "btn" %>
     </div>
