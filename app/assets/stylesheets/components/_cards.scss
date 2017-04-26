@@ -1,19 +1,28 @@
 .card {
-  height: 175px;
+  height: 350px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: contain !important;
   background-repeat: no-repeat;
   background-position: center;
-  margin: 10px 0px;
+  margin: 5px 0px;
   color: white;
   position: relative;
 }
 .card-user {
+  text-align: center;
   position: absolute;
   right: 10px;
   top: 10px;
 }
+.card-user p {
+  font-size: 12px
+}
+
+.card-user img {
+  width: 30px;
+}
 .card-category {
+  text-align: center;
   position: absolute;
   top: 10px;
   left: 10px;
