@@ -1,20 +1,25 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-      <%= simple_form_for @tool do |f| %>
-        <%= f.error_notification %>
-        <%= f.input :name %>
-        <%= f.input :category, collection: Tool::CATEGORIES, include_blank: false %>
-        <%= f.input :location %>
-        <%= f.input :description %>
-        <%= f.input :photo, as: :attachinary %>
-        <% if user_signed_in? %>
-          <%= hidden_field_tag "user_id", current_user.id %>
-          <%= f.button :submit, class: "btn btn-success" %>
-        <% else %>
-        <%= f.label "Please Login" %>
+    <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
+      <h2 class="text-center">Share your tool</h2>
+      <div id="tool-form">
+        <%= simple_form_for @tool do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :name, label: "Give your tool a name" %>
+          <%= f.input :category, collection: Tool::CATEGORIES, include_blank: false %>
+          <%= f.input :location, label: "Where is your tool? (enter an address)" %>
+          <%= f.input :description , label: "Tool description"%>
+          <%= f.input :photo, label: "Add a photo", as: :attachinary %>
+          <div class="btn-holder">
+            <% if user_signed_in? %>
+              <%= hidden_field_tag "user_id", current_user.id %>
+              <%= f.button :submit, class: "btn btn-success" %>
+            <% else %>
+            <%= f.label "Please Login" %>
+            <% end %>
+          </div>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
