@@ -10,7 +10,7 @@ class ToolsController < ApplicationController
     @user = User.find(params[:user_id])
     @tool.user = @user
     if @tool.save
-      redirect_to @tool
+      redirect_to tools_user_path(@user)
     else
       render :new
     end
