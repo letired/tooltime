@@ -4,8 +4,8 @@
       <h1><%= @tool.name %></h1>
       <% if @tool.photo? %>
         <%= cl_image_tag @tool.photo.path, transformation:[
-          {aspect_ratio: "5:3", crop: "fill"},
-          {width: "auto", dpr: "auto", crop:"scale"}
+          { crop: "fill" },
+          { width: "auto", dpr: "auto", crop:"scale" }
           ], class: "img-responsive cld-responsive"%>
       <% end %>
       <p>Owner: <%= @tool.user.first_name + " " + @tool.user.last_name %></p>
