@@ -22,7 +22,7 @@ class ToolsController < ApplicationController
       @tools
     else
       unless params[:tool][:name].empty?
-       @tools = @tools.where("name ilike ?", "%#{params[:tool][:name]}%")
+       @tools = @tools.where("name ilike ?", "%#{params[:tool][:name].strip}%")
       end
       unless params[:tool][:location].empty?
         @tools = @tools.where("location ilike ?", params[:tool][:location])
