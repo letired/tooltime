@@ -2,7 +2,10 @@ module ToolsHelper
   # Tool Card Helper Methods
   def card_photo?(tool)
     if tool.photo
-      cl_image_path tool.photo.path, height: 300, width: 400, crop: :fill
+      cl_image_path tool.photo.path, transformation:[
+          {aspect_ratio: "5:3", crop: "fill"},
+          {width: "auto", dpr: "auto", crop:"scale"}
+          ], class: "img-responsive cld-responsive"
     else
       image_path("https://www.placecage.com/g/300/400")
     end
