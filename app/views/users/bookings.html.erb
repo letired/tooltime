@@ -7,7 +7,6 @@
       <table class="table table-striped">
         <thead>
             <tr>
-              <th>Booking ID</th>
               <th>Location</th>
               <th>Begin Date</th>
               <th>End Date</th>
@@ -16,16 +15,13 @@
         </thead>
         <tbody>
           <tr>
-            <td><%= booking.id %></td>
             <td><%= booking.tool.location %></td>
             <td><%= booking.date_begin %></td>
             <td><%= booking.date_end %></td>
             <% if booking.accepted? %>
-              <td>Yes </td>
-              <td class="fa fa-check"></td>
+              <td>Yes <i class="fa fa-check"></i></td>
             <% else %>
-              <td>Pending... </td>
-              <td class="fa fa-hourglass-half "></td>
+              <td>Pending <i class="fa fa-hourglass-half"></i></td>
             <% end %>
           </tr>
         </tbody>
