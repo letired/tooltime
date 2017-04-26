@@ -33,12 +33,14 @@
                 <td><%= booking.date_end %></td>
                 <td><%= booking.message %></td>
                 <% if booking.accepted.nil? %>
-                  <td>
-                    <%= button_to "Accept", update_state_path(booking_id: booking.id, value: "accept"), method: :patch %>
-                    <%= button_to "Reject", update_state_path(booking_id: booking.id, value: "reject"), method: :patch %>
+                  <td id="<%= booking.id %>">
+                  <button class="btn btn-success accept">Accept</button>
+                  <button class="btn btn-danger reject">Reject</button>
                   </td>
+                <% elsif booking.accepted == true %>
+                  <td><i class="fa fa-check" aria-hidden="true"></i></td>
                 <% else %>
-                  <td><%= booking.accepted %></td>
+                  <td><i class="fa fa-times" aria-hidden="true"></i></td>
                 <% end %>
               </tr>
             <% end %>
@@ -48,3 +50,33 @@
     </div>
   <% end %>
 </div>
+
+<% content_for(:after_js) do %>
+  <script>
+  $(document).ready(function(){
+    $('.accept').on('click', function(){
+      $.ajax({
+        type: "PATCH",
+        url: "<%= update_state_path %>",
+        data:  { booking_id: $(this).parent().attr('id'), state_change: 'accept' },
+        success: function() {
+          console.log("bookings updated successfully");
+        }
+      });
+      $(this).parent().html("<i class='fa fa-check' aria-hidden='true'></i>");
+    });
+    $('.reject').on('click', function(){
+      $.ajax({
+        type: "PATCH",
+        url: "<%= update_state_path %>",
+        data:  { booking_id: $(this).parent().attr('id'), state_change: 'reject' },
+        success: function() {
+          console.log("bookings updated successfully");
+        }
+      });
+      $(this).parent().html("<i class='fa fa-times' aria-hidden='true'></i>");
+    });
+  });
+  </script>
+<% end %>
+

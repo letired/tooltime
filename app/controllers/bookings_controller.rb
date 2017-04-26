@@ -23,8 +23,8 @@ class BookingsController < ApplicationController
 
   def update_state
     @booking = Booking.find(params[:booking_id])
-    @booking.accepted = true if params[:value] == "accept"
-    @booking.accepted = false if params[:value] == "reject"
+    @booking.accepted = true if params[:state_change] == "accept"
+    @booking.accepted = false if params[:state_change] == "reject"
     @booking.save
   end
 
