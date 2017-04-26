@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking.tool = @tool
 
     if @booking.save
-      redirect_to tool_path(@tool)
+      redirect_to bookings_user_path(current_user)
     else
       render "tools/show"
     end
