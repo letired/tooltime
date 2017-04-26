@@ -30,11 +30,16 @@
     <div class="col-xs-12 col-sm-6">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('<%= card_photo?(booking.tool) %>');">
         <div class="card-category">
-          <%= booking.tool.category %>
+          <%= category_icon(booking.tool) %>
+          <p><%= booking.tool.category %></p>
         </div>
         <div class="card-description">
-          <%= booking.tool.name %>
-          <%= booking.tool.photo %>
+          <h1><%= cutoff_text(booking.tool.name) %></h1>
+          <p><%= cutoff_text(booking.tool.description) %></p>
+        </div>
+        <div class="card-user">
+          <%= image_tag("earth-globe.png") %>
+          <p><%= cutoff_text(booking.tool.location) %></p>
         </div>
       </div>
     </div>
@@ -43,3 +48,5 @@
   <% end %>
 
 </div>
+
+
