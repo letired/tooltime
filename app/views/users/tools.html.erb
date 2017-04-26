@@ -4,11 +4,16 @@
       <div class="col-xs-12 col-sm-6">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('<%= card_photo?(tool) %>');">
           <div class="card-category">
-            <%= tool.category %>
+            <%= category_icon(tool) %>
+            <p><%= tool.category %></p>
           </div>
           <div class="card-description">
-            <h2><%= tool.name %></h2>
-            <p><%= tool.description %></p>
+            <h1><%= cutoff_text(tool.name) %></h1>
+            <p><%= cutoff_text(tool.description) %></p>
+          </div>
+          <div class="card-user">
+            <%= image_tag("earth-globe.png") %>
+            <p><%= cutoff_text(tool.location) %></p>
           </div>
         </div>
         <%= link_to tool, class: "card-link" do  %>
