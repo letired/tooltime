@@ -1,24 +1,33 @@
-<div class="container">
+<div class="container-fluid padded">
   <div class="row">
-    <% @tools.each do |tool| %>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('<%= card_photo?(tool) %>');">
-        <div class="card-category">
-          <%= category_icon(tool) %>
-          <p><%= tool.category %></p>
+    <div class="col-xs-12 col-sm-6">
+      <div class="row slideDown">
+      <% @tools.each do |tool| %>
+      <div class="col-xs-12 col-sm-6">
+      <%= link_to tool do %>
+      <div class="thumbnail">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('<%= card_photo?(tool) %>');">
+          <div class="card-category">
+            <%= category_icon(tool) %>
+          </div>
+          <div class="card-user">
+            <p><%= tool.user.first_name %></p>
+          </div>
         </div>
-        <div class="card-description">
-          <h1><%= cutoff_text(tool.name) %></h1>
-          <p><%= cutoff_text(tool.description) %></p>
+        <div class="caption card-caption">
+          <div class="row">
+            <div class="col-xs-12">
+              <h4><%= cutoff_text(tool.name) %> in <%= tool.location %></h4>
+              <p><%= cutoff_description(tool.description) %></p>
+            </div>
+          </div>
         </div>
-        <div class="card-user">
-          <%= image_tag("earth-globe.png") %>
-          <p><%= cutoff_text(tool.location) %></p>
         </div>
+        <% end %>
       </div>
-      <%= link_to tool, class: "card-link" do  %>
+
       <% end %>
+      </div>
     </div>
-    <% end %>
   </div>
 </div>

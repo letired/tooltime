@@ -30,6 +30,7 @@ class ToolsController < ApplicationController
       unless params[:tool][:category].empty?
         @tools = @tools.where("category ilike ? AND user_id != ?", params[:tool][:category], user_signed_in? ? current_user.id : 0)
       end
+      @tools.order("created_at")
     end
   end
 

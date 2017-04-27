@@ -53,3 +53,14 @@
 .card-link:hover{
   opacity: 0.1;
 }
+
+.card-caption {
+  margin: 2px;
+  padding: 1px !important;
+  p {
+    font-size: 12px;
+  }
+  h4 {
+    margin: 1px;
+  }
+}
