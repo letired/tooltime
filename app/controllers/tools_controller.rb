@@ -35,6 +35,7 @@ class ToolsController < ApplicationController
   end
 
   def show
+    get_map_coords
     @tool = Tool.find(params[:id])
     @booking = Booking.new
   end
@@ -68,5 +69,15 @@ class ToolsController < ApplicationController
 
   def tool_params
     params.require(:tool).permit(:name, :category, :location, :description, :user_id, :photo)
+  end
+
+  def get_map_coords
+    @tools = Tool.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@tools) do |tool, marker|
+      marker.lat tool.latitude
+      marker.lng tool.longitude
+      # marker.infowindow render_to_string(partial: "/tools/map_box", locals: { flat: flat })
+    end
   end
 end
