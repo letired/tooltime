@@ -37,10 +37,6 @@ class ToolsController < ApplicationController
     get_map_coords
     @tool = Tool.find(params[:id])
     @booking = Booking.new
-    # OPTIONAL alert message
-    # @alert_message = "You are viewing #{@tool.name}"
-    # Optional location message
-    @tool_coordinates = { lat: @tool.latitude, lng: @tool.longitude }
   end
 
   private
