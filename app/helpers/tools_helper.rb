@@ -11,6 +11,17 @@ module ToolsHelper
     end
   end
 
+  def list_photo?(tool)
+    if tool.photo
+      cl_image_tag tool.photo.path, transformation:[
+          { crop: "fill" },
+          { width: "300", dpr: "auto", crop:"scale" }
+          ], class: "img-responsive cld-responsive"
+    else
+      image_tag("https://www.placecage.com/g/300/400", class: "img-responsive cld-responsive")
+    end
+  end
+
   def category_icon(tool)
     case tool.category
     when "Home Improvement"
@@ -24,5 +35,9 @@ module ToolsHelper
 
   def cutoff_text(string)
     string.length > 30 ? string.first(30) + "..." : string
+  end
+
+  def cutoff_description(string)
+    string.length > 100 ? string.first(100) + "..." : string
   end
 end

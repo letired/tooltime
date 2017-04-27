@@ -1,0 +1,29 @@
+<ul class="list-group">
+  <% @tools.each do |tool| %>
+  <li class="list-group-item clearfix">
+
+    <%= list_photo(tool) %>
+    <h3 class="list-group-item-heading">
+      <%= cutoff_text(tool.name) %>
+    </h3>
+    <p class="list-group-item-text lead">
+      <%= cutoff_text(tool.description) %>
+      <br />
+    </p>
+    <div class="btn-toolbar pull-right" role="toolbar" aria-label="">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-list"></i> <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">Add to new list</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">A list</a></li>
+          <li><a href="#">Another list</a></li>
+          <li><a href="#">Third list</a></li>
+        </ul>
+      </div>
+      <a href="#" class="btn btn-default">Add to cart</a>
+      <a href="#" class="btn btn-primary">$29.99</a>
+    </div>
+  </li>
+  <% end %>
+</ul>
