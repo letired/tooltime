@@ -1,5 +1,6 @@
 class Tool < ApplicationRecord
   CATEGORIES = %w(Home\ Improvement Automotive Gardening)
+  CITIES = %w(Berlin Paris London)
   # gecode specific settings
   geocoded_by :location
   after_validation :geocode, if: :location_changed?
@@ -9,6 +10,7 @@ class Tool < ApplicationRecord
   # validations
   validates :user_id, presence: true
   validates :name, presence: true
+  validates :city, presence: true
   validates :category, presence: true
   validates :location, presence: true
   has_attachment :photo

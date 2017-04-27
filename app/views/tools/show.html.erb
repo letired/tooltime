@@ -10,6 +10,7 @@
       <% end %>
       <p>Owner: <%= @tool.user.first_name + " " + @tool.user.last_name %></p>
       <p>Description: <%= @tool.description %></p>
+      <p>Location: <%= @tool.location %></p>
       <%= render '/bookings/form' %>
       <%= link_to 'Back', tools_path, class: "btn" %>
 
