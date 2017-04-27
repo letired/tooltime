@@ -10,7 +10,7 @@
               <th>Location</th>
               <th>Begin Date</th>
               <th>End Date</th>
-              <th>Accepted?</th>
+              <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -19,9 +19,11 @@
             <td><%= booking.date_begin %></td>
             <td><%= booking.date_end %></td>
             <% if booking.accepted? %>
-              <td>Yes <i class="fa fa-check"></i></td>
+              <td><i class="fa fa-check"></i></td>
+            <% elsif booking.accepted == false %>
+              <td><i class="fa fa-times"></i></td>
             <% else %>
-              <td>Pending <i class="fa fa-hourglass-half"></i></td>
+              <td><i class="fa fa-hourglass-half"></i></td>
             <% end %>
           </tr>
         </tbody>
