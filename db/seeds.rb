@@ -27,49 +27,49 @@ tools_attributes = [
   {
     name:         "Circular Saw",
     category:     "Home Improvement",
-    location:     "Paris",
+    location:     "32 Grosse Hamburger Str, Berlin",
     description:  "In perfect working condition",
     user_id:     1
   },
   {
     name:         "Hammer",
     category:     "Home Improvement",
-    location:     "London",
+    location:     "Schillerstraße 7, 10625 Berlin",
     description:  "Perfect for hammering nails",
     user_id:     1
   },
   {
     name:         "Leaf Blower",
     category:     "Gardening",
-    location:     "Berlin",
+    location:     "Courbierestr, 10787 Berlin",
     description:  "A fine garden leaf blower and vacuum!",
     user_id:     2
   },
   {
     name:         "Fence Post Hole Digger",
     category:     "Gardening",
-    location:     "Paris",
+    location:     "Perleberger Str. 42, Berlin",
     description:  "Puts your fence up in no time",
     user_id:     2
   },
   {
     name:         "Electric Lawn Mower",
     category:     "Gardening",
-    location:     "London",
+    location:     "Bluecherstraße 11, 10961 Berlin",
     description:  "In mint condition!",
     user_id:     3
   },
   {
     name:         "Jet washer",
     category:     "Automotive",
-    location:     "Berlin",
+    location:     "Sonnenallee 192, 12059 Berlin",
     description:  "Multi purpose but especially good to clean your car",
     user_id:     3
   },
   {
     name:         "Chassis stands",
     category:     "Automotive",
-    location:     "London",
+    location:     "Josef-Orlopp-Straße 18, 10367 Berlin",
     description:  "You know what they're for",
     user_id:     4
   },

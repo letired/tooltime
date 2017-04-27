@@ -2,14 +2,13 @@
   <div class="banner-content">
     <div class="container">
       <div class="row bigEntrance">
-       <h1>TOOLTIME</h1>
-       <p>Find the tool you need. Every time.</p>
+       <h1>TOOLTIME BERLIN</h1>
+       <p>Share your tools. Make Tim Happy.</p>
        <div class="hidden-xs"><%= image_tag("timallen.png", class: "img-circle fadeIn") %></div>
        <div class="col-xs-12">
         <div class="form-inline">
           <%= simple_form_for @tool, method: :get do |f| %>
           <%= f.input :name, label: false, placeholder: "What tool do you need?" %>
-          <%= f.input :location, label: false, placeholder: "Where are you?" %>
           <%= f.input :category, label: false, collection: Tool::CATEGORIES, prompt: "Tool category" %>
           <%= f.button :submit, "Search!", class: "btn btn-primary" %>
           <% end %>

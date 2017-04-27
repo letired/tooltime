@@ -1,11 +1,11 @@
 <div class="container-fluid padded">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <div class="row slideDown">
+      <div class="row">
       <% @tools.each do |tool| %>
       <div class="col-xs-12 col-sm-6">
       <%= link_to tool do %>
-      <div class="thumbnail">
+      <div class="thumbnail slideDown">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('<%= card_photo?(tool) %>');">
           <div class="card-category">
             <%= category_icon(tool) %>
@@ -17,7 +17,8 @@
         <div class="caption card-caption">
           <div class="row">
             <div class="col-xs-12">
-              <h4><%= cutoff_text(tool.name) %> in <%= tool.location %></h4>
+              <h4><%= cutoff_text(tool.name) %></h4>
+              <p><%= cutoff_text(tool.location) %></p>
               <p><%= cutoff_description(tool.description) %></p>
             </div>
           </div>
@@ -25,9 +26,32 @@
         </div>
         <% end %>
       </div>
-
       <% end %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="map-container">
+        <div id="map" style="width: 100%; height: 100vh;"></div>
+        <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+            $(document).ready(function() {
+              var handler = Gmaps.build('Google');
+              handler.buildMap({ internal: { id: 'map' } }, function() {
+                markers = handler.addMarkers(<%= raw @hash.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+                if (markers.length == 0) {
+                  handler.getMap().setZoom(2);
+                } else if (markers.length == 1) {
+                  handler.getMap().setZoom(14);
+                }
+              });
+            });
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<%= @hash %>
