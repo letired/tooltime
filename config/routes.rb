@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  devise_for :users
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :tools, only: [ :index, :new, :create, :show, :edit, :update, :destroy ]
   resources :bookings, only: [ :create, :update ]
   patch 'update_state', to: 'bookings#update_state'
@@ -12,3 +13,4 @@ Rails.application.routes.draw do
     end
   mount Attachinary::Engine => "/attachinary"
 end
+

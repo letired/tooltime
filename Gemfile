@@ -33,6 +33,8 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'faker'
+
+gem 'omniauth-facebook'
 gem 'geocoder'
 gem 'gmaps4rails'
 
