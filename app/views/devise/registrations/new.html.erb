@@ -1,24 +1,80 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-      <h2>Sign up</h2>
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
+    <div class="col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1">
+      <div class="form-table">
+        <h2>Sign up</h2>
+        <div class="wrap hidden-xs">
+          <div class="left">
+            <div class="btn fb-btn">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+              <%= render "devise/shared/omniauth_link" %>
+            </div>
+          </div>
+          <div class="center">
+            <div class="bar-top-right"></div>
+            <p>or</p>
+            <div class="bar-bottom-right"></div>
+          </div>
+          <div class="right">
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= f.error_notification %>
 
-          <div class="form-inputs">
-            <%= f.input :first_name, autofocus: true %>
-            <%= f.input :last_name %>
-            <%= f.input :email, required: true %>
-            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-            <%= f.input :password_confirmation, required: true %>
+              <div class="form-inputs">
+                <%= f.input :first_name, label: false, placeholder: "Your first name", autofocus: true %>
+                <%= f.input :last_name, label: false, placeholder: "Your last name" %>
+                <%= f.input :email, label: false, placeholder: "Your email", required: true %>
+                <%= f.input :password, label: false, placeholder: "Your password", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                <%= f.input :password_confirmation, label: false, placeholder: "Password confirmation", required: true %>
+              </div>
+
+              <div class="form-actions">
+                <%= f.button :submit, "Sign up", class: "btn btn-success" %>
+              </div>
+            <% end %>
           </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, "Sign up", class: "btn btn-success" %>
-          </div>
-        <% end %>
+        </div>
 
+        <!-- for mobile navigation -->
+        <div class="wrap-sm hidden-sm hidden-md hidden-lg">
+
+          <div class="left-sm">
+            <div class="btn fb-btn">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+              <%= render "devise/shared/omniauth_link" %>
+            </div>
+          </div>
+
+          <div class="center-sm">
+            <div class="bar-left"></div>
+            <p>or</p>
+            <div class="bar-right"></div>
+          </div>
+
+          <div class="right-sm">
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= f.error_notification %>
+
+              <div class="form-inputs">
+                <%= f.input :first_name, label: false, placeholder: "Your first name", autofocus: true %>
+                <%= f.input :last_name, label: false, placeholder: "Your last name" %>
+                <%= f.input :email, label: false, placeholder: "Your email", required: true %>
+                <%= f.input :password, label: false, placeholder: "Your password", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                <%= f.input :password_confirmation, label: false, placeholder: "Password confirmation", required: true %>
+              </div>
+
+              <div class="form-actions">
+                <%= f.button :submit, "Sign up", class: "btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="links">
         <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>
