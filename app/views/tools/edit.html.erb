@@ -6,7 +6,7 @@
         <%= render 'form' %>
       </div>
       <div class="text-center padded-sm">
-      <%= link_to 'Delete Tool', @tool, method: :delete, data: { confirm: "Are you sure that you want to delete '#{@tool.name}' and all its bookings?" }, class: 'btn btn-danger' %>
+      <%= link_to 'Delete Tool', @tool, method: :delete, data: { confirm: "Are you sure that you want to delete '#{@tool.name}' and all its bookings?" }, class: 'btn btn-danger btn-tooltime'%>
       </div>
     </div>
   </div>

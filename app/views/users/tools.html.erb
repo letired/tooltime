@@ -1,33 +1,38 @@
 <div class="container">
   <% @tools.each do |tool| %>
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('<%= card_photo?(tool) %>');">
-          <div class="card-category">
-            <%= category_icon(tool) %>
-            <p><%= tool.category %></p>
+      <div class="col-xs-12 col-sm-3">
+        <div class="action-card">
+          <div class="action-card-title">
+            <h4 class="no-margin">
+              <%= tool.name %>
+              <%= link_to edit_tool_path(tool) do %>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+              <% end %>
+            </h4>
           </div>
-          <div class="card-description">
-            <h1><%= cutoff_text(tool.name) %></h1>
-            <p><%= cutoff_text(tool.description) %></p>
-          </div>
-          <div class="card-user">
-            <%= image_tag("earth-globe.png") %>
-            <p><%= cutoff_text(tool.location) %></p>
+          <div class="action-card-thumb text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= action_card_photo?(tool) %>');">
+            <%= link_to tool, class: "card-link" do  %>
+            <% end %>
           </div>
         </div>
-        <%= link_to edit_tool_path(tool), class: "card-link" do  %>
-        <% end %>
       </div>
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-9">
         <table class="table table-striped">
+          <colgroup>
+             <col span="1" style="width: 10%;">
+             <col span="1" style="width: 20%;">
+             <col span="1" style="width: 20%;">
+             <col span="1" style="width: 27%;">
+             <col span="1" style="width: 23%;">
+          </colgroup>
           <thead>
             <tr>
               <th>Tooler</th>
               <th>From</th>
               <th>To</th>
               <th>Message</th>
-              <th>State</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -39,8 +44,8 @@
                 <td><%= booking.message %></td>
                 <% if booking.accepted.nil? %>
                   <td id="<%= booking.id %>">
-                  <button class="btn btn-success accept">Accept</button>
-                  <button class="btn btn-danger reject">Reject</button>
+                  <button class="btn btn-success btn-tooltime-sm accept">Accept</button>
+                  <button class="btn btn-danger btn-tooltime-sm reject">Reject</button>
                   </td>
                 <% elsif booking.accepted == true %>
                   <td><i class="fa fa-check" aria-hidden="true"></i></td>
@@ -53,6 +58,7 @@
         </table>
       </div>
     </div>
+    <hr>
   <% end %>
 </div>
 
