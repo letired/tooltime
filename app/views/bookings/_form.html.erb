@@ -1,8 +1,16 @@
-<%= simple_form_for @booking, method: :patch do |f| %>
-<%= f.input :accepted,
-            :as => :select,
-            :collection => [['Accept',true],['Reject',false]],
-            :include_blank => false,
-            :label => "Accept Booking?" %>
-<%= f.button :submit %>
-<% end %>
+<div class="form-inputs">
+  <%= simple_form_for [@booking] do |f| %>
+    <%= f.input :date_begin, label: "Start date: ", autofocus: true %>
+    <%= f.input :date_end, label: "End date: " %>
+    <%= f.input :message, label: "Message " %>
+    <%= hidden_field_tag 'tool_id', @tool.id %>
+    <div class="form-actions">
+      <% if user_signed_in? %>
+        <%= f.button :submit, class: "btn btn-success" %>
+        <%= hidden_field_tag 'user_id', current_user.id %>
+      <% else %>
+         <%= link_to 'Gotta be logged in!!!', new_user_session_path, class: "btn btn-danger" %>
+      <% end %>
+      </div>
+  <% end %>
+</div>

@@ -5,8 +5,8 @@ class Tool < ApplicationRecord
   after_validation :geocode, if: :location_changed?
   # db relations
   belongs_to :user
-  has_many :bookings
-  # Validations
+  has_many :bookings, dependent: :destroy
+  # validations
   validates :user_id, presence: true
   validates :name, presence: true
   validates :category, presence: true
