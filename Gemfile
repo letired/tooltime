@@ -37,7 +37,9 @@ gem 'faker'
 gem 'omniauth-facebook'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'bootstrap-datepicker-rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-underscore'
+  gem 'rails-assets-bootstrap-datepicker'
 end
