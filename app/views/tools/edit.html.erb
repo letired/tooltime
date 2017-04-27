@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
+      <h2 class="text-center">Update your tool</h2>
+      <div id="tool-form">
+        <%= render 'form' %>
+      </div>
+      <div class="text-center padded-sm">
+      <%= link_to 'Delete Tool', @tool, method: :delete, data: { confirm: "Are you sure that you want to delete '#{@tool.name}' and all its bookings?" }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>
