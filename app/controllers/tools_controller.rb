@@ -78,7 +78,7 @@ class ToolsController < ApplicationController
   private
 
   def tool_params
-    params.require(:tool).permit(:name, :category, :location, :description, :user_id, :photo)
+    params.require(:tool).permit(:name, :category, :location, :city, :description, :user_id, :photo)
   end
 
   def get_map_coords(tool)
