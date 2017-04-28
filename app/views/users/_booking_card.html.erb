@@ -1,0 +1,14 @@
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('<%= card_photo?(booking.tool) %>');">
+  <div class="card-category">
+    <%= category_icon(booking.tool) %>
+    <p><%= booking.tool.category %></p>
+  </div>
+  <div class="card-description">
+    <h1><%= cutoff_text(booking.tool.name) %></h1>
+    <p><%= cutoff_text(booking.tool.description) %></p>
+  </div>
+  <div class="card-user">
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <p><%= cutoff_text(booking.tool.location) %></p>
+  </div>
+</div>

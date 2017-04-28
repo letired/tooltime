@@ -1,55 +1,29 @@
 <div class="container">
 
+  <h2>My Bookings</h2>
+
   <% @bookings.each do |booking| %>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <table class="table table-striped">
-        <thead>
-            <tr>
-              <th>Location</th>
-              <th>Begin Date</th>
-              <th>End Date</th>
-              <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= booking.tool.location %></td>
-            <td><%= booking.date_begin %></td>
-            <td><%= booking.date_end %></td>
-            <% if booking.accepted? %>
-              <td><i class="fa fa-check"></i></td>
-            <% elsif booking.accepted == false %>
-              <td><i class="fa fa-times"></i></td>
-            <% else %>
-              <td><i class="fa fa-hourglass-half"></i></td>
-            <% end %>
-          </tr>
-        </tbody>
-      </table>
+    <!-- all displays except xs -->
+    <div class="hidden-xs col-sm-6">
+      <%= render 'users/bookings_table', booking: booking %>
       <%= link_to "Send a message about this booking", booking  %>
     </div>
-    <div class="col-xs-12 col-sm-6">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('<%= card_photo?(booking.tool) %>');">
-        <div class="card-category">
-          <%= category_icon(booking.tool) %>
-          <p><%= booking.tool.category %></p>
-        </div>
-        <div class="card-description">
-          <h1><%= cutoff_text(booking.tool.name) %></h1>
-          <p><%= cutoff_text(booking.tool.description) %></p>
-        </div>
-        <div class="card-user">
-          <%= image_tag("earth-globe.png") %>
-          <p><%= cutoff_text(booking.tool.location) %></p>
-        </div>
-      </div>
+    <div class="hidden-xs col-sm-6">
+      <%= render 'users/booking_card', booking: booking %>
+    </div>
+
+    <!-- xs displays -->
+    <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+      <%= render 'users/booking_card', booking: booking %>
+    </div>
+    <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+      <%= render 'users/bookings_table', booking: booking %>
+      <%= link_to "Send a message about this booking", booking  %>
     </div>
   </div>
 
   <% end %>
 
 </div>
-
-
