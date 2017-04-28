@@ -9,6 +9,7 @@
 puts 'Cleaning database...'
 Tool.destroy_all
 User.destroy_all
+Booking.destroy_all
 
 puts 'Creating users...'
 10.times do
@@ -83,5 +84,22 @@ tools_attributes = [
 ]
 Tool.create!(tools_attributes)
 puts 'Tools created!'
+
+puts 'Creating bookings...'
+
+25.times do
+  booking = Booking.new(
+    user_id: (1..10).to_a.sample,
+    tool_id: (1..7).to_a.sample,
+    message: Faker::Hipster.sentence,
+    accepted: [true,false,nil].sample,
+    date_begin: Faker::Date.between(2.days.ago, Date.today),
+    date_end: Faker::Date.between(2.days.from_now, 4.days.from_now)
+    )
+  booking.save
+end
+
+puts 'Bookings created!'
+
 
 puts 'Finished!'
