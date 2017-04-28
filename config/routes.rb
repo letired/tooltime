@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :tools, only: [ :index, :new, :create, :show, :edit, :update, :destroy ]
-  resources :bookings, only: [ :create, :update ]
+  resources :bookings, only: [ :create, :show ]
   patch 'update_state', to: 'bookings#update_state'
   resources :users , only: [ ] do
       member do
