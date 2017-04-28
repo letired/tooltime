@@ -1,7 +1,7 @@
 <div class="form-inputs">
   <%= simple_form_for [@booking] do |f| %>
     <%= f.input :date_begin, as: 'string', label: "Start date: ", autofocus: true, input_html: { class: 'datepicker' } %>
-    <%= f.input :date_end, as: 'string', label: "End date: ", input_html: { class: 'datepicker' } %>
+    <%= f.input :date_end, as: 'string', label: "End date: ", input_html: { class: 'datepicker-max' } %>
 
     <%= f.input :message, label: "Message " %>
     <%= hidden_field_tag 'tool_id', @tool.id %>
@@ -17,5 +17,17 @@
 </div>
 
 <script type="text/javascript">
-  $('.datepicker').datepicker();
+  $('.datepicker').datepicker({
+    todayHighlight: true,
+    startDate: '0d',
+    endDate: '+14d'
+  });
+</script>
+
+<script type="text/javascript">
+  $('.datepicker-max').datepicker({
+    todayHighlight: true,
+    startDate: '+1d',
+    endDate: '+15d'
+  });
 </script>
