@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'timallen@tooltime.club'
+  default from: 'home-improvement@tooltime.club'
   layout 'mailer'
 end
