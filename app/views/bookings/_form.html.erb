@@ -1,9 +1,9 @@
 <div class="form-inputs">
   <%= simple_form_for [@booking] do |f| %>
-    <%= f.input :date_begin, as: 'string', label: "Start date: ", autofocus: true, input_html: { class: 'datepicker' } %>
-    <%= f.input :date_end, as: 'string', label: "End date: ", input_html: { class: 'datepicker-max' } %>
+    <%= f.input :date_begin, as: 'string', placeholder: 'Start date within next two weeks', label: "Start date: ", input_html: { id: 'from' } %>
+    <%= f.input :date_end, as: 'string', placeholder: 'Max. borrowing time is 7 days', label: "End date: ", input_html: { id: 'to' } %>
 
-    <%= f.input :message, label: "Message " %>
+    <%= f.input :message, placeholder: 'What will you use the tool for?', label: "Message " %>
     <%= hidden_field_tag 'tool_id', @tool.id %>
     <div class="form-actions">
       <% if user_signed_in? %>
@@ -16,18 +16,33 @@
   <% end %>
 </div>
 
-<script type="text/javascript">
-  $('.datepicker').datepicker({
-    todayHighlight: true,
-    startDate: '0d',
-    endDate: '+14d'
-  });
-</script>
+<% content_for(:after_js) do %>
+  <script type="text/javascript">
+    $('#from').datepicker({
+      format: 'dd-M-yyyy',
+      weekStart: 1,
+      daysOfWeekHighlighted: [0],
+      todayHighlight: true,
+      autoclose: true,
+      startDate: '0d',
+      endDate: '+14d',
+    })
+    .on('changeDate', function() {
+      var start_date = new Date($('#from').datepicker('getDate'));
+      start_date.setDate(start_date.getDate() + 1);
+      $('#to').datepicker('setStartDate', start_date);
+      var end_date = new Date(start_date);
+      end_date.setDate(end_date.getDate() + 6);
+      $('#to').datepicker('setEndDate', end_date);
+      $('#to').val('');
+      });;
 
-<script type="text/javascript">
-  $('.datepicker-max').datepicker({
-    todayHighlight: true,
-    startDate: '+1d',
-    endDate: '+15d'
-  });
-</script>
+    $('#to').datepicker({
+      format: 'dd-M-yyyy',
+      weekStart: 1,
+      daysOfWeekHighlighted: [0],
+      autoclose: true,
+      startDate: '+1d'
+    });
+  </script>
+<% end %>
