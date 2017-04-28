@@ -25,11 +25,14 @@ module ToolsHelper
   def category_icon(tool)
     case tool.category
     when "Home Improvement"
-      image_tag("home-improvement.png")
+      html_tag = '<i class="fa fa-home" aria-hidden="true"></i>'
+      html_tag.html_safe
     when "Automotive"
-      image_tag("automotive.png")
+      html_tag = '<i class="fa fa-car" aria-hidden="true"></i>'
+      html_tag.html_safe
     when "Gardening"
-      image_tag("gardening.png")
+      html_tag = '<i class="fa fa-leaf" aria-hidden="true"></i>'
+      html_tag.html_safe
     end
   end
 
