@@ -16,3 +16,15 @@
   width: 60px;
   padding: 2px;
 }
+.fb-btn {
+  background-color: #3B5998;
+  transition: background-color 0.2s ease;
+}
+.fb-btn:hover {
+  background-color: #2d467a;
+  color: white;
+}
+.btn {
+  border-radius: 5px;
+  padding: 10px 15px;
+}
