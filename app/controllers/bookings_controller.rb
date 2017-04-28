@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [ :show, :update_state ]
+  before_action :set_booking, only: [ :show ]
   before_action :authenticate_user!
 
   def show
@@ -29,6 +29,7 @@ class BookingsController < ApplicationController
 
 
   def update_state
+    @booking = Booking.find(params[:booking_id])
     @booking.accepted = true if params[:state_change] == "accept"
     @booking.accepted = false if params[:state_change] == "reject"
     @booking.save
