@@ -4,9 +4,9 @@ class BookingsController < ApplicationController
 
   def show
     if current_user.id == @booking.tool.user.id
-
+      @message = Message.new
     elsif current_user.id == @booking.user.id
-
+      @message = Message.new
     else
       redirect_to root_path
     end

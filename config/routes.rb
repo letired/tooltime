@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :tools, only: [ :index, :new, :create, :show, :edit, :update, :destroy ]
   resources :bookings, only: [ :create, :show ]
+  resources :messages, only: [ :create ]
   patch 'update_state', to: 'bookings#update_state'
   resources :users , only: [ ] do
       member do

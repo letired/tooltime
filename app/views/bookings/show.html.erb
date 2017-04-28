@@ -1,7 +1,17 @@
-<p>Requester <%= @booking.user.first_name %>'s ID = <%= @booking.user.id %></p>
+<div class="container">
+  <h1>Messages</h1>
+  <h2>
+    <%= pluralize @booking.messages.size, "messages" %>
+  </h2>
 
-<p>Tool Owner <%= @booking.tool.user.first_name %>'s ID = <%= @booking.tool.user.id %></p>
-
-<p>Current User's ID = <%= current_user.id %></p>
-
-<p><%= @message %></p>
+  <div id="messages">
+    <% if @booking.messages.blank? %>
+      Be the first to send a message for this booking.
+    <% else %>
+      <% @booking.messages.each do |message| %>
+        <%= render 'messages/show', message: message %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= render 'messages/form', message: @message %>
+</div>
