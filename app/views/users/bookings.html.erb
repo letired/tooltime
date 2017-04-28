@@ -8,16 +8,16 @@
         <thead>
             <tr>
               <th>Location</th>
-              <th>Begin Date</th>
-              <th>End Date</th>
+              <th>From</th>
+              <th>To</th>
               <th>Status</th>
             </tr>
         </thead>
         <tbody>
           <tr>
             <td><%= booking.tool.location %></td>
-            <td><%= booking.date_begin %></td>
-            <td><%= booking.date_end %></td>
+            <td><%= date_format(booking.date_begin) %></td>
+            <td><%= date_format(booking.date_end) %></td>
             <% if booking.accepted? %>
               <td><i class="fa fa-check"></i></td>
             <% elsif booking.accepted == false %>

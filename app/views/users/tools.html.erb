@@ -28,7 +28,7 @@
           </colgroup>
           <thead>
             <tr>
-              <th>Tooler</th>
+              <th>Requester</th>
               <th>From</th>
               <th>To</th>
               <th>Message</th>
@@ -39,8 +39,8 @@
             <% tool.bookings.where("date_end >= '#{Date.today}'").each do |booking| %>
               <tr>
                 <td><%= booking.user.first_name %></td>
-                <td><%= booking.date_begin %></td>
-                <td><%= booking.date_end %></td>
+                <td><%= date_format(booking.date_begin) %></td>
+                <td><%= date_format(booking.date_end) %></td>
                 <td><%= booking.message %></td>
                 <% if booking.accepted.nil? %>
                   <td id="<%= booking.id %>">
