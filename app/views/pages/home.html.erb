@@ -9,6 +9,7 @@
         <div class="form-inline">
           <%= simple_form_for @tool, method: :get do |f| %>
           <%= f.input :name, label: false, placeholder: "What tool do you need?" %>
+          <%= f.input :location, label: false, collection: Tool::CITIES, prompt: "Your city" %>
           <%= f.input :category, label: false, collection: Tool::CATEGORIES, prompt: "Tool category" %>
           <%= f.button :submit, "Search!", class: "btn btn-primary" %>
           <% end %>

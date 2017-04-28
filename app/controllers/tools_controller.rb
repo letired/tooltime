@@ -10,6 +10,11 @@ class ToolsController < ApplicationController
       unless params[:tool][:name].empty?
        @tools = @tools.where("name ilike ? AND user_id != ?", "%#{params[:tool][:name].strip}%", user_signed_in? ? current_user.id : 0)
       end
+      # This needs to be changed to City (instead of :location) once we have a new seed!!! **********************************
+      unless params[:tool][:location].empty?
+        @tools = @tools.where("location ilike ? AND user_id != ?", params[:tool][:location], user_signed_in? ? current_user.id : 0)
+      end
+      # ***********************************************************************************************
       unless params[:tool][:category].empty?
         @tools = @tools.where("category ilike ? AND user_id != ?", params[:tool][:category], user_signed_in? ? current_user.id : 0)
       end
