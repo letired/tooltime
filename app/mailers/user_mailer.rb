@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
   #
   def welcome(user)
     @user = user
-    @greeting = "Welcome to Tool Time, the place to trade your gear."
+    @greeting = "Hi #{user.first_name}, welcome to Tool Time, the place to trade your gear."
 
     mail(to: @user.email, subject: "Welcome")
   end
