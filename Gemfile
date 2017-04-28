@@ -38,6 +38,7 @@ gem 'omniauth-facebook'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'bootstrap-datepicker-rails'
+gem 'letter_opener', group: :development
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-underscore'
