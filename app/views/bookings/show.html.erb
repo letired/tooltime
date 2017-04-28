@@ -1,17 +1,22 @@
 <div class="container">
-  <h1>Messages</h1>
-  <h2>
-    <%= pluralize @booking.messages.size, "messages" %>
-  </h2>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <h1 class="text-center">Messages</h1>
+      <h2>
+        <%= pluralize @booking.messages.size, "messages" %>
+      </h2>
 
-  <div id="messages">
-    <% if @booking.messages.blank? %>
-      Be the first to send a message for this booking.
-    <% else %>
-      <% @booking.messages.each do |message| %>
-        <%= render 'messages/show', message: message %>
-      <% end %>
-    <% end %>
+      <div id="messages">
+        <% if @booking.messages.blank? %>
+          Be the first to send a message for this booking.
+        <% else %>
+          <% @booking.messages.each do |message| %>
+            <%= render 'messages/show', message: message %>
+          <% end %>
+          <hr>
+        <% end %>
+      </div>
+      <%= render 'messages/form', message: @message %>
+    </div>
   </div>
-  <%= render 'messages/form', message: @message %>
 </div>
