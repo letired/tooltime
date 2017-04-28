@@ -16,8 +16,9 @@ class ToolsController < ApplicationController
       unless params[:tool][:category].empty?
         @tools = @tools.where("category ilike ? AND user_id != ?", params[:tool][:category], user_signed_in? ? current_user.id : 0)
       end
-      @tools = @tools.order("created_at")
+
     end
+    @tools = @tools.order(created_at: :desc)
     @map_builder = @tools.where.not(latitude: nil, longitude: nil)
 
     @hash = Gmaps4rails.build_markers(@map_builder) do |tool, marker|
