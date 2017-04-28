@@ -1,4 +1,16 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [ :show, :update_state ]
+  before_action :authenticate_user!
+
+  def show
+    if current_user.id == @booking.tool.user.id
+      @message = Message.new
+    elsif current_user.id == @booking.user.id
+      @message = Message.new
+    else
+      redirect_to root_path
+    end
+  end
 
   def create
     @tool = Tool.find(params[:tool_id])
@@ -15,14 +27,8 @@ class BookingsController < ApplicationController
     end
   end
 
-  def update
-    @booking = Booking.find(params[:id])
-    @booking.update(booking_update_params)
-    redirect_to tools_user_path(@booking.tool.user)
-  end
 
   def update_state
-    @booking = Booking.find(params[:booking_id])
     @booking.accepted = true if params[:state_change] == "accept"
     @booking.accepted = false if params[:state_change] == "reject"
     @booking.save
@@ -34,7 +40,7 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:message, :date_begin, :date_end)
   end
 
-  def booking_update_params
-    params.require(:booking).permit(:accepted)
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end

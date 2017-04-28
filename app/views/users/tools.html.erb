@@ -42,7 +42,7 @@
                 <td><%= booking.user.first_name %></td>
                 <td><%= booking.date_begin %></td>
                 <td><%= booking.date_end %></td>
-                <td><%= booking.message %></td>
+                <td><%= link_to booking do %><%= booking.message %> <i class="fa fa-comments-o" aria-hidden="true"></i><% end %></td>
                 <% if booking.accepted.nil? %>
                   <td id="<%= booking.id %>">
                   <button class="btn btn-success btn-tooltime-sm accept">Accept</button>

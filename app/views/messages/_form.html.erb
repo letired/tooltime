@@ -1,0 +1,7 @@
+<%= simple_form_for([ message ], remote: true) do |form| %>
+  <%= form.input :content, placeholder: "Send a nice message!" %>
+  <%= hidden_field_tag "user_id", current_user.id %>
+  <%= hidden_field_tag "booking_id", @booking.id %>
+  <%= form.button :submit %>
+
+<% end %>

@@ -8,6 +8,7 @@
     <!-- all displays except xs -->
     <div class="hidden-xs col-sm-6">
       <%= render 'users/bookings_table', booking: booking %>
+      <%= link_to "Send a message about this booking", booking  %>
     </div>
     <div class="hidden-xs col-sm-6">
       <%= render 'users/booking_card', booking: booking %>
@@ -19,6 +20,7 @@
     </div>
     <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
       <%= render 'users/bookings_table', booking: booking %>
+      <%= link_to "Send a message about this booking", booking  %>
     </div>
   </div>
 
