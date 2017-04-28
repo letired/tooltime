@@ -9,7 +9,7 @@
   <div class="btn-holder">
     <% if user_signed_in? %>
       <%= hidden_field_tag "user_id", current_user.id %>
-      <%= f.button :submit, class: "btn btn-success" %>
+      <%= f.button :submit, id: "message-btn", class: "btn btn-success" %>
     <% else %>
     <%= f.label "Please Login" %>
     <% end %>
