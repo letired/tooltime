@@ -1,7 +1,15 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [ :show, :update_state ]
+  before_action :authenticate_user!
 
   def show
+    if current_user.id == @booking.tool.user.id
+
+    elsif current_user.id == @booking.user.id
+
+    else
+      redirect_to root_path
+    end
   end
 
   def create

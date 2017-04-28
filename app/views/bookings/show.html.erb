@@ -1,2 +1,7 @@
-<%= @booking.user.first_name %>
-<%= @booking.tool.user.first_name %>
+<p>Requester <%= @booking.user.first_name %>'s ID = <%= @booking.user.id %></p>
+
+<p>Tool Owner <%= @booking.tool.user.first_name %>'s ID = <%= @booking.tool.user.id %></p>
+
+<p>Current User's ID = <%= current_user.id %></p>
+
+<p><%= @message %></p>
