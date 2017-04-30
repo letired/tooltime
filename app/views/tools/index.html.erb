@@ -1,6 +1,18 @@
 <div class="container-fluid padded">
+
+
   <div class="row">
     <div class="col-xs-12 col-md-6">
+      <h1>Filter your Results</h1>
+      <%= simple_form_for @tool, method: :get do |f| %>
+      <%= f.input :name, label: false, placeholder: "Tool name" %>
+      <%= f.input :city, label: false, collection: Tool::CITIES, prompt: "Your city" %>
+      <%= f.input :category, label: false, collection: Tool::CATEGORIES, prompt: "Tool category" %>
+      <%= f.button :submit, "Search!", class: "btn btn-primary" %>
+      <% end %><br>
+    <!-- </div>
+    <div class="col-xs-12 col-md-6"> -->
+      <div class="wrap">
       <div class="row">
       <% @tools.each do |tool| %>
         <div class="col-xs-12 col-md-6">
@@ -28,6 +40,7 @@
           <% end %>
         </div>
       <% end %>
+      </div>
       </div>
     </div>
     <div class="col-xs-12 col-md-6">
