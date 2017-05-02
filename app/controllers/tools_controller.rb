@@ -3,6 +3,7 @@ class ToolsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
+    @tool = Tool.new
     @tools = Tool.all
     if params[:tool] == nil
       @tools
